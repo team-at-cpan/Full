@@ -1,6 +1,6 @@
 package Full;
 
-our $VERSION = '1.000';
+our $VERSION = '1.001';
 # AUTHORITY
 
 use utf8;
