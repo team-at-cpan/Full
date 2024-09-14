@@ -90,11 +90,11 @@ __END__
 
 =head1 AUTHOR
 
-Deriv Group Services Ltd. C<< DERIV@cpan.org >>.
-
-See L<Full/CONTRIBUTORS> for full details.
+Original code can be found at https://github.com/deriv-com/perl-Myriad/tree/master/lib/Myriad/Class.pm,
+by Deriv Group Services Ltd. C<< DERIV@cpan.org >>. This version has been split out as a way to provide
+similar functionality.
 
 =head1 LICENSE
 
-Copyright Deriv Group Services Ltd 2020-2024. Licensed under the same terms as Perl itself.
+Released under the same terms as Perl itself.
 
