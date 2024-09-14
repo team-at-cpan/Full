@@ -7,7 +7,7 @@ use Test::Fatal;
 is(exception {
     eval <<'EOS' or die $@;
     package Example::Class;
-    use Base::Class;
+    use Full::Class;
     field $something;
     method example { $self }
     1

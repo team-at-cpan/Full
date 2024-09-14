@@ -1,9 +1,9 @@
-package Base::Class;
+package Full::Class;
 
 use strict;
 use warnings;
 
-# VERSION
+our $VERSION = '1.000';
 # AUTHORITY
 
 use utf8;
@@ -12,12 +12,12 @@ use utf8;
 
 =head1 NAME
 
-Base::Class - common pragmata for modules which provide an OO class
+Full::Class - common pragmata for modules which provide an OO class
 
 =head1 SYNOPSIS
 
  package Example::Class;
- use Base::Class;
+ use Full::Class;
 
  async method startup {
   $log->infof('Starting %s', __PACKAGE__);
@@ -153,7 +153,7 @@ actual usage involves a combination of other modules:
 These are supported through L<Object::Pad::FieldAttr::Checked>:
 
  package Example;
- use Base::Class qw(:v2);
+ use Full::Class qw(:v2);
  field $checked :Checked(Str);
 
 =head3 Method parameter constraints
@@ -162,7 +162,7 @@ These use L<Signature::Attribute::Checked> to provide method parameter checks.
 Note that the C<extended> keyword is required, see L<Sublike::Extended> for more information.
 
  package Example;
- use Base::Class qw(:v2);
+ use Full::Class qw(:v2);
  extended method example ($v :Checked(Num)) { }
 
 =head2 Class features
@@ -178,7 +178,7 @@ It's very likely that future versions will bring in new functionality or
 enable/disable a different featureset. This behaviour will be controlled through
 version tags:
 
- use Base::Class qw(:v1);
+ use Full::Class qw(:v1);
 
 with the default being C<:v1>.
 
@@ -274,7 +274,7 @@ sub import {
     # service code - new filehandles need to be lexical.
     bareword::filehandles->unimport;
 
-    # This one's needed for nested scope, e.g. { package XX; use Base::Service; method xxx (%args) ... }
+    # This one's needed for nested scope, e.g. { package XX; use Full::Service; method xxx (%args) ... }
     experimental->import('signatures');
 
     # We don't really care about diamond inheritance, since microservices are expected
@@ -413,7 +413,7 @@ __END__
 
 Deriv Group Services Ltd. C<< DERIV@cpan.org >>.
 
-See L<Base/CONTRIBUTORS> for full details.
+See L<Full/CONTRIBUTORS> for full details.
 
 =head1 LICENSE
 

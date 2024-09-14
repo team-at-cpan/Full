@@ -1,4 +1,4 @@
-package Base::Script;
-use Base::Class class => '';
+package Full::Script;
+use Full::Class class => '';
 
 1;
