@@ -1,5 +1,5 @@
 {
-   "abstract" : "common pragmata for Perl scripts and modules",
+   "abstract" : "simplify common boilerplate for Perl scripts and modules",
    "author" : [
       "Tom Molesworth <TEAM@cpan.org>"
    ],
@@ -89,17 +89,21 @@
       }
    },
    "provides" : {
+      "Full" : {
+         "file" : "lib/Full.pm",
+         "version" : "1.001"
+      },
       "Full::Class" : {
          "file" : "lib/Full/Class.pm",
-         "version" : "1.000"
+         "version" : "1.001"
       },
       "Full::Pragmata" : {
          "file" : "lib/Full/Pragmata.pm",
-         "version" : "1.000"
+         "version" : "1.001"
       },
       "Full::Script" : {
          "file" : "lib/Full/Script.pm",
-         "version" : "1.000"
+         "version" : "1.001"
       }
    },
    "release_status" : "stable",
@@ -114,8 +118,11 @@
          "web" : "https://github.com/team-at-cpan/Full"
       }
    },
-   "version" : "1.000",
+   "version" : "1.001",
    "x_authority" : "cpan:TEAM",
+   "x_contributors" : [
+      "Tom Molesworth <tom@audioboundary.com>"
+   ],
    "x_generated_by_perl" : "v5.40.0",
    "x_serialization_backend" : "Cpanel::JSON::XS version 4.38",
    "x_spdx_expression" : "Artistic-1.0-Perl OR GPL-1.0-or-later"

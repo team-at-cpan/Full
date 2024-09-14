@@ -7,6 +7,7 @@ use Test::More 0.88;
 use Test::NoTabs;
 
 my @files = (
+    'lib/Full.pm',
     'lib/Full/Class.pm',
     'lib/Full/Pragmata.pm',
     'lib/Full/Script.pm',

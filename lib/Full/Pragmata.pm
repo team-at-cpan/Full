@@ -3,7 +3,7 @@ package Full::Pragmata;
 use strict;
 use warnings;
 
-our $VERSION = '1.000';
+our $VERSION = '1.001'; # VERSION
 our $AUTHORITY = 'cpan:TEAM'; # AUTHORITY
 
 use utf8;
@@ -28,6 +28,8 @@ in recent code.
 This module attempts to provide a good set of functionality for writing code without too
 many lines of boilerplate. It has been extracted from L<Myriad::Class> so that it can be
 used in other code without pulling in too many irrelevant dependencies.
+
+=head2 Language features
 
 The following Perl language features and modules are applied to the caller:
 
@@ -151,73 +153,10 @@ These are supported through L<Object::Pad::FieldAttr::Checked>:
  use Full::Class qw(:v2);
  field $checked :Checked(Str);
 
-=head1 DESCRIPTION
-
-The following Perl language features and modules are applied to the caller:
-
-=over 4
-
-=item * L<strict>
-
-=item * L<warnings>
-
-=item * L<utf8>
-
-=item * L<perlsub/signatures>
-
-=item * no L<indirect>
-
-=item * no L<multidimensional>
-
-=item * no L<bareword::filehandles>
-
-=item * L<Syntax::Keyword::Try>
-
-=item * L<Syntax::Keyword::Dynamically>
-
-=item * L<Syntax::Keyword::Defer>
-
-=item * L<Future::AsyncAwait>
-
-=item * L<Future::AsyncAwait::Hooks>
-
-=item * provides L<Scalar::Util/blessed>, L<Scalar::Util/weaken>, L<Scalar::Util/refaddr>
-
-=item * provides L<List::Util/min>, L<List::Util/max>, L<List::Util/sum0>
-
-=item * provides L<List::Keywords/any>, L<List::Keywords/all>
-
-=item * provides L<JSON::MaybeUTF8/encode_json_text>, L<JSON::MaybeUTF8/encode_json_utf8>,
-L<JSON::MaybeUTF8/decode_json_text>, L<JSON::MaybeUTF8/decode_json_utf8>, L<JSON::MaybeUTF8/format_json_text>
-
-=item * provides L<Unicode::UTF8/encode_utf8>, L<Unicode::UTF8/decode_utf8>
-
-=back
-
-In addition, the following core L<feature>s are enabled:
-
-=over 4
-
-=item * L<bitwise|feature>
-
-=item * L<current_sub|feature>
-
-=item * L<evalbytes|feature>
-
-=item * L<fc|feature>
-
-=item * L<postderef_qq|feature>
-
-=item * L<state|feature>
-
-=item * L<unicode_eval|feature>
-
-=item * L<unicode_strings|feature>
-
-=back
+=head3 Other features
 
 This also makes available a L<Log::Any> instance in the C<$log> package variable,
-and for L<OpenTracing::Any> support you get C<$tracer> as an L<OpenTracing::Tracer>
+and for L<OpenTelemetry> support you get C<$tracer> as an L<OpenTelemtry::Tracer>
 instance.
 
 =head2 VERSIONING
@@ -423,19 +362,6 @@ sub import ($called_on, $version_tag, %args) {
 1;
 
 __END__
-
-=head1 SEE ALSO
-
-There are many modules which provide similar functionality. Here are a few examples, in no particular
-order:
-
-=over 4
-
-=item * L<Modern::Perl>
-
-=item * L<common::sense>
-
-=back
 
 =head1 AUTHOR
 

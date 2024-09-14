@@ -8,6 +8,7 @@ Makefile.PL
 README
 cpanfile
 dist.ini
+lib/Full.pm
 lib/Full/Class.pm
 lib/Full/Pragmata.pm
 lib/Full/Script.pm

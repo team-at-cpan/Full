@@ -7,7 +7,7 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "common pragmata for Perl scripts and modules",
+  "ABSTRACT" => "simplify common boilerplate for Perl scripts and modules",
   "AUTHOR" => "Tom Molesworth <TEAM\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0
@@ -50,7 +50,7 @@ my %WriteMakefileArgs = (
     "Test::CheckDeps" => "0.010",
     "Test::More" => "0.94"
   },
-  "VERSION" => "1.000",
+  "VERSION" => "1.001",
   "test" => {
     "TESTS" => "t/*.t"
   }

@@ -1,12 +1,16 @@
 NAME
 
-    Full::Pragmata - common pragmata for Perl scripts and modules
+    Full - simplify common boilerplate for Perl scripts and modules
 
 SYNOPSIS
 
-     # in your script or module:
-     use Full::Pragmata;
+     # in your script
+     use Full::Script;
      # use strict, warnings, utf8 etc. are all now applied and in scope
+     # or in a module that provides a class:
+     use Full::Class;
+     field $example;
+     method example_method { return $example }
 
 DESCRIPTION
 
@@ -18,200 +22,14 @@ DESCRIPTION
     Myriad::Class so that it can be used in other code without pulling in
     too many irrelevant dependencies.
 
-    The following Perl language features and modules are applied to the
-    caller:
+    For a list of Perl language features and modules applied by this,
+    please see:
 
-      * strict
+      * Full::Pragmata - base list
 
-      * warnings
+      * Full::Class - OO classes
 
-      * utf8
-
-      * "signatures" in perlsub
-
-      * no indirect
-
-      * no multidimensional
-
-      * no bareword::filehandles
-
-      * Syntax::Keyword::Try
-
-      * Syntax::Keyword::Dynamically
-
-      * Syntax::Keyword::Defer - or the standard Perl built-in defer since 
-      :v2 
-
-      * Syntax::Operator::Equ - added in  :v2 
-
-      * Future::AsyncAwait
-
-      * Future::AsyncAwait::Hooks - added in  :v2 
-
-      * provides "blessed" in Scalar::Util, "weaken" in Scalar::Util,
-      "refaddr" in Scalar::Util
-
-      * provides "min" in List::Util, "max" in List::Util, "sum0" in
-      List::Util
-
-      * provides "uniqstr" in List::Util - added in  :v2 
-
-      * provides "any" in List::Keywords, "all" in List::Keywords
-
-      * provides "encode_json_text" in JSON::MaybeUTF8, "encode_json_utf8"
-      in JSON::MaybeUTF8, "decode_json_text" in JSON::MaybeUTF8,
-      "decode_json_utf8" in JSON::MaybeUTF8, "format_json_text" in
-      JSON::MaybeUTF8
-
-      * provides "encode_utf8" in Unicode::UTF8, "decode_utf8" in
-      Unicode::UTF8
-
-    In addition, the following core features are enabled:
-
-      * bitwise
-
-      * current_sub
-
-      * evalbytes
-
-      * fc
-
-      * postderef_qq
-
-      * state
-
-      * unicode_eval
-
-      * unicode_strings
-
- Constraints and checks
-
-    Data::Checks is imported with the following constraints available:
-
-      * Defined
-
-      * Object
-
-      * Str
-
-      * Num
-
-      * StrEq
-
-      * NumGT
-
-      * NumGE
-
-      * NumLE
-
-      * NumLT
-
-      * NumRange
-
-      * NumEq
-
-      * Isa
-
-      * ArrayRef
-
-      * HashRef
-
-      * Callable
-
-      * Maybe
-
-      * Any
-
-      * All
-
-    Note that Data::Checks provides the underlying support for constraints,
-    but actual usage involves a combination of other modules:
-
-  Field constraints
-
-    These are supported through Object::Pad::FieldAttr::Checked:
-
-     package Example;
-     use Full::Class qw(:v2);
-     field $checked :Checked(Str);
-
-DESCRIPTION
-
-    The following Perl language features and modules are applied to the
-    caller:
-
-      * strict
-
-      * warnings
-
-      * utf8
-
-      * "signatures" in perlsub
-
-      * no indirect
-
-      * no multidimensional
-
-      * no bareword::filehandles
-
-      * Syntax::Keyword::Try
-
-      * Syntax::Keyword::Dynamically
-
-      * Syntax::Keyword::Defer
-
-      * Future::AsyncAwait
-
-      * Future::AsyncAwait::Hooks
-
-      * provides "blessed" in Scalar::Util, "weaken" in Scalar::Util,
-      "refaddr" in Scalar::Util
-
-      * provides "min" in List::Util, "max" in List::Util, "sum0" in
-      List::Util
-
-      * provides "any" in List::Keywords, "all" in List::Keywords
-
-      * provides "encode_json_text" in JSON::MaybeUTF8, "encode_json_utf8"
-      in JSON::MaybeUTF8, "decode_json_text" in JSON::MaybeUTF8,
-      "decode_json_utf8" in JSON::MaybeUTF8, "format_json_text" in
-      JSON::MaybeUTF8
-
-      * provides "encode_utf8" in Unicode::UTF8, "decode_utf8" in
-      Unicode::UTF8
-
-    In addition, the following core features are enabled:
-
-      * bitwise
-
-      * current_sub
-
-      * evalbytes
-
-      * fc
-
-      * postderef_qq
-
-      * state
-
-      * unicode_eval
-
-      * unicode_strings
-
-    This also makes available a Log::Any instance in the $log package
-    variable, and for OpenTracing::Any support you get $tracer as an
-    OpenTracing::Tracer instance.
-
- VERSIONING
-
-    A version tag is required:
-
-     use Full::Pragmata qw(:v1);
-
-    Currently :v1 is the only version available. It's very likely that
-    future versions will bring in new functionality or enable/disable a
-    different featureset, or may remove functionality or behaviour that's
-    no longer appropriate.
+      * Full::Script - .pl scripts
 
 SEE ALSO
 
