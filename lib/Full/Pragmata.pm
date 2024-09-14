@@ -3,7 +3,7 @@ package Full::Pragmata;
 use strict;
 use warnings;
 
-# VERSION
+our $VERSION = '1.000';
 # AUTHORITY
 
 use utf8;
@@ -12,10 +12,11 @@ use utf8;
 
 =head1 NAME
 
-Full::Pragmata - common pragmata for L<Full> core modules
+Full::Pragmata - common pragmata for Perl scripts and modules
 
 =head1 SYNOPSIS
 
+ # in your script or module:
  use Full::Pragmata;
  # use strict, warnings, utf8 etc. are all now applied and in scope
 
@@ -28,7 +29,7 @@ This module attempts to provide a good set of functionality for writing code wit
 many lines of boilerplate. It has been extracted from L<Myriad::Class> so that it can be
 used in other code without pulling in too many irrelevant dependencies.
 
-The following Perl language features and modules are applied:
+The following Perl language features and modules are applied to the caller:
 
 =over 4
 
@@ -234,6 +235,8 @@ no multidimensional;
 no bareword::filehandles;
 use mro;
 use experimental qw(signatures);
+use meta;
+no warnings qw(meta::experimental);
 use curry;
 use Data::Checks;
 use Object::Pad::FieldAttr::Checked;
@@ -254,9 +257,6 @@ use Module::Load ();
 
 use JSON::MaybeUTF8;
 use Unicode::UTF8;
-
-use Heap;
-use IO::Async::Notifier;
 
 use Log::Any qw($log);
 use Metrics::Any;
@@ -406,8 +406,8 @@ sub import ($called_on, $version_tag, %args) {
         if(USE_OPENTELEMETRY) {
             my $provider = OpenTelemetry->tracer_provider;
             *{$pkg . '::tracer'}  = \($provider->tracer(
-                name    => 'myriad',
-                version => $version,
+                name    => $args{app} // 'perl',
+                version => $args{version} // $version,
             ));
         }
         *{$pkg . '::log'} = \Log::Any->get_logger(
@@ -422,11 +422,26 @@ sub import ($called_on, $version_tag, %args) {
 
 __END__
 
+=head1 SEE ALSO
+
+There are many modules which provide similar functionality. Here are a few examples, in no particular
+order:
+
+=over 4
+
+=item * L<Modern::Perl>
+
+=item * L<common::sense>
+
+=back
+
 =head1 AUTHOR
 
-Deriv Group Services Ltd. C<< DERIV@cpan.org >>.
+Original code can be found at https://github.com/deriv-com/perl-Myriad/tree/master/lib/Myriad/Class.pm,
+by Deriv Group Services Ltd. C<< DERIV@cpan.org >>. This version has been split out as a way to provide
+similar functionality.
 
 =head1 LICENSE
 
-Copyright Full Group Services Ltd 2020-2023.
+Released under the same terms as Perl itself.
 
