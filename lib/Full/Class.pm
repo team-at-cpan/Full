@@ -3,6 +3,7 @@ package Full::Class;
 use Full::Pragmata qw(:v1);
 use parent qw(Full::Pragmata);
 
+# VERSION
 # AUTHORITY
 
 =encoding utf8
