@@ -98,7 +98,7 @@ In addition, the following core L<feature>s are enabled:
 
 =head2 Constraints and checks
 
-From C<:v2> onwards, L<Data::Checks> is imported with the following constraints available: 
+L<Data::Checks> is imported with the following constraints available:
 
 =over 4
 
@@ -220,13 +220,15 @@ This also makes available a L<Log::Any> instance in the C<$log> package variable
 and for L<OpenTracing::Any> support you get C<$tracer> as an L<OpenTracing::Tracer>
 instance.
 
-It's very likely that future versions will bring in new functionality or
-enable/disable a different featureset. This behaviour will be controlled through
-version tags:
+=head2 VERSIONING
+
+A version tag is required:
 
  use Full::Pragmata qw(:v1);
 
-with the default (and only currently-available) version being C<:v1>.
+Currently C<:v1> is the only version available. It's very likely that future versions
+will bring in new functionality or enable/disable a different featureset, or may
+remove functionality or behaviour that's no longer appropriate.
 
 =cut
 
