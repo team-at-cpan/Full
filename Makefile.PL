@@ -7,8 +7,8 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "common pragmata for modules which provide an OO class",
-  "AUTHOR" => "Deriv Services <DERIV\@cpan.org>",
+  "ABSTRACT" => "common pragmata for Perl scripts and modules",
+  "AUTHOR" => "Tom Molesworth <TEAM\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0
   },
