@@ -11,7 +11,7 @@ use utf8;
 
 =head1 NAME
 
-Deriv::Script - common preämble for Perl scripts
+Full::Script - common preämble for Perl scripts
 
 =head1 SYNOPSIS
 
@@ -23,7 +23,7 @@ Deriv::Script - common preämble for Perl scripts
 =head1 DESCRIPTION
 
 Loads common modules and applies language syntax and other features
-as described in L<Deriv::Pragmata>.
+as described in L<Full::Pragmata>.
 
 The intention is to use this as the first line in every script or cron job
 so that we have consistent configuration and language features. It also
