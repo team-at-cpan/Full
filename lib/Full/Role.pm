@@ -1,4 +1,4 @@
-package Full::Class;
+package Full::Role;
 
 use Full::Pragmata qw(:v1);
 use parent qw(Full::Pragmata);
@@ -10,16 +10,14 @@ our $AUTHORITY = 'cpan:TEAM'; # AUTHORITY
 
 =head1 NAME
 
-Full::Class - common pragmata for modules which provide an OO class
+Full::Role - common pragmata for modules which provide an OO rôle
 
 =head1 SYNOPSIS
 
- package Example::Class;
- use Full::Class qw(:v1);
+ package Example::Role;
+ use Full::Role qw(:v1);
 
- async method startup {
-  $log->infof('Starting %s', __PACKAGE__);
- }
+ method example;
 
  1;
 
@@ -29,21 +27,21 @@ These use L<Signature::Attribute::Checked> to provide method parameter checks.
 Note that the C<extended> keyword is required, see L<Sublike::Extended> for more information.
 
  package Example;
- use Full::Class qw(:v1);
+ use Full::Role qw(:v1);
  extended method example ($v :Checked(Num)) { }
 
 =head2 Class features
 
-The calling package will be marked as an L<Object::Pad> class, providing the
-L<Object::Pad/method>, L<Object::Pad/has> and C<async method> keywords.
+The calling package will be marked as an L<Object::Pad> rôle, providing the
+L<Object::Pad/method>, L<Object::Pad/has> and C<async method> keywords, among others.
 
 This also makes available a L<Log::Any> instance in the C<$log> package variable,
 and for L<OpenTelemetry> support you get C<$tracer> as an L<OpenTelemetry>
 instance.
 
 It's very likely that future versions will bring in new functionality or
-enable/disable a different featureset. This behaviour is controlled through
-mandatory version tags:
+enable/disable a different featureset. This behaviour will be controlled through
+version tags:
 
  use Full::Class qw(:v1);
 
@@ -62,7 +60,7 @@ sub import ($called_on, $version, %args) {
     if(my $class = $args{class} // $pkg) {
         Object::Pad->import_into($pkg, ":experimental(init_expr mop custom_field_attr)");
 
-        my $method = 'begin_' . ($args{type} || 'class');
+        my $method = 'begin_' . ($args{type} || 'role');
         Module::Load::load($args{extends}) if $args{extends};
         my $meta = Object::Pad::MOP::Class->$method(
             $class,
