@@ -2,6 +2,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.002     2024-09-15 13:01:09+08:00 Asia/Singapore
     [New features]
 
     - rôle support via Object::Pad
