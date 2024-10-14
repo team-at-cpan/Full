@@ -2,6 +2,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.004     2024-10-15 05:33:40+08:00 Asia/Singapore
     [Dependencies]
 
     - latest Sublike::Extended throws exceptions when passing anything
