@@ -2,6 +2,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+    [Dependencies]
+
+    - latest Sublike::Extended throws exceptions when passing anything
+    to ->import (we were passing the package name), now fixed
 
 1.003     2024-09-15 18:50:14+08:00 Asia/Singapore
     [Tests fixed]
